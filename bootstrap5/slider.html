@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">  
+    <link href="https://goldenplanet.co.kr/css/common.css?time=1644911474" rel="stylesheet">
+    <link rel="stylesheet" href="https://goldenplanet.co.kr/css/swiper.min.css" /> 
+    <style>
+        .mt-space1{margin-top: 5.6rem;} 
+    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script> 
+        <script src="https://goldenplanet.co.kr/js/swiper-bundle.min.js"></script>  
+        <script>
+            $(function (){  
+            var swiperboard = new Swiper(".swiper-board-main", { 
+		slidesPerView: 1,
+		spaceBetween: 0,
+		effect : 'fade' ,
+		loop:true,
+		centeredSlides: true, 
+		autoplay: {
+			delay: 4000,
+			disableOnInteraction: false
+		},
+		  navigation: {
+			  nextEl: ".board-button-next",
+			  prevEl: ".board-button-prev",
+		  }, 
+		pagination: {
+			
+			el:'.board-main .swiper-pagination',
+			clickable:true, 
+			
+			/*
+			
+			renderBullet:function(index, className){
+				return '<a class="' + className + '">0'+(index + 1)+'</a>';
+			},
+			*/
+			type: 'custom',
+			renderCustom:function(swiper, current, total){ 
+				return '<a class="swiper-pagination-bullet">01</a> <a class="swiper-pagination-bullet">0'+(total)+'</a>';
+			},
+
+			// el:'.board-main .swiper-pagination',
+			// clickable:true,
+			// renderBullet:function(index, className){
+			//   var pnText=$('.swiper-board-main .swiper-slide').eq(index+1).find('dt>a').text() ;
+			//   return '<a class="' + className + '"><b>'+pnText+'</b><span><i></i></span></a>';  
+			// },
+		}, 
+		on:{
+		  init:function(){   
+			  var contHtml = $('.swiper-board-main .swiper-slide-active').find('.swiper-contents').html();
+			  $('.load-contents').html(contHtml); 
+              $('.board-main .space-swiper-pn>i').removeClass('progressing') ;
+		  },
+		  slideChangeTransitionStart: function(e){     
+			console.log(e.slides.length - 2);
+			$('.board-main .space-swiper-pn>i').removeClass('progressing') ;
+			var pn = e.realIndex + 1 ; 
+			$('.board-main .swiper-pagination a').eq(0).text("0"+pn ) ;  
+
+			if( (e.slides.length - 2) ==  pn) {
+				$('.board-main .swiper-pagination a').eq(1).addClass('swiper-pagination-bullet-active');
+			} else {
+				$('.board-main .swiper-pagination a').eq(1).removeClass('swiper-pagination-bullet-active');
+			}
+		  },
+		  slideChangeTransitionEnd: function(){   
+			  var contHtml = $('.swiper-board-main .swiper-slide-active').find('.swiper-contents').html();
+			  $('.load-contents').html(contHtml);
+			  
+              setTimeout(function(){
+                $('.board-main .space-swiper-pn>i').addClass('progressing') ; 
+              },500);
+		  },
+	  },
+  
+	});
+});
+        </script>
+</head>
+<body>
+    <section class="mt-space1">
+        <div class="wrap">
+            <div class="row board-main no-gutters">
+                <div class="col-lg-6 cont-bx">
+                    <div class="load-contents">
+                    </div>
+                    <div class="pagination-area">
+                        <div class="swiper-control ">
+                            <div class="space-swiper-pn"> 
+                                <div class="swiper-pagination"></div>
+                                <div class="space-swiper-pn-num"></div>
+                                <i></i>
+                            </div>
+                        </div>
+                        <div class="board-button">
+                            <span class="board-button-next"><i class="xi-angle-left-thin"></i></span>
+                            <span class="board-button-prev"><i class="xi-angle-right-thin"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 img-bx">
+                    <div class="swiper-container swiper-board-main">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="background:url(https://goldenplanet.co.kr/data/data/2021/12/2021-12-28_13-44-58-31173-1640666698.png) no-repeat center center/cover;">
+                                <div class="swiper-contents">
+                                    <dl>
+                                        <dt>
+                                            <p class="f-sm3 text-primary">Marketing Cloud</p>
+                                            <a href="?number=922&pn=1" class="h3 fw600">오라클 엘로콰를 이용하여 마케팅 자동화에 한걸음 다가서기</a>
+                                        </dt>
+                                        <dd class="f-sm3 text-gray">
+
+마케팅 자동화. 단어 자체만 들었을 때는 말 그대로 ‘마케팅 과정을 자동화하는 것’으로....<p class="text-gray mt-3">2021.10.01</p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" style="background:url(https://goldenplanet.co.kr/data/data/2021/11/2021-11-05_13-54-30-70075-1636088070.png) no-repeat center center/cover;">
+                                <div class="swiper-contents">
+                                    <dl>
+                                        <dt>
+                                            <p class="f-sm3 text-primary">Google Marketing Platform</p>
+                                            <a href="?number=863&pn=1" class="h3 fw600">검색광고 최적화를 위한 구글애즈 X 구글애널리틱스(GA) 꿀팁</a>
+                                        </dt>
+                                        <dd class="f-sm3 text-gray">﻿검색엔진 마케팅(SEM)은 구글과 같은 검색엔진 상단에 사이트를 노출시켜 사이트 유입을 ....<p class="text-gray mt-3">2021.09.29</p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" style="background:url(https://goldenplanet.co.kr/data/data/2022/01/2022-01-03_12-55-17-21264-1641182117.png) no-repeat center center/cover;">
+                                <div class="swiper-contents">
+                                    <dl>
+                                        <dt>
+                                            <p class="f-sm3 text-primary">Google Cloud Platform</p>
+                                            <a href="?number=933&pn=1" class="h3 fw600">클라우드란 무엇인가</a>
+                                        </dt>
+                                        <dd class="f-sm3 text-gray">
+
+﻿ 코로나19가 가져온 변화는 비대면 문화의 확산이다. 온라인 및 모바일을 기반으로 하....<p class="text-gray mt-3">2021.08.20</p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" style="background:url(https://goldenplanet.co.kr/data/data/2021/12/2021-12-30_12-05-23-70851-1640833523.png) no-repeat center center/cover;">
+                                <div class="swiper-contents">
+                                    <dl>
+                                        <dt>
+                                            <p class="f-sm3 text-primary">Smart Farming</p>
+                                            <a href="?number=929&pn=1" class="h3 fw600">1차 산업(농업)과 데이터와의 필연적 만남</a>
+                                        </dt>
+                                        <dd class="f-sm3 text-gray">
+
+세계 인구는 2050 년까지 90억을 넘어서 현재 인구의 1/3이 증가될 것으로 예상됩....<p class="text-gray mt-3">2021.07.16</p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide" style="background:url(https://goldenplanet.co.kr/data/data/2021/12/2021-12-08_11-13-44-30707-1638929624.png) no-repeat center center/cover;">
+                                <div class="swiper-contents">
+                                    <dl>
+                                        <dt>
+                                            <p class="f-sm3 text-primary">Bigdata Analytics</p>
+                                            <a href="?number=859&pn=1" class="h3 fw600">빅데이터 공부 한 걸음: Word2Vec 이란?</a>
+                                        </dt>
+                                        <dd class="f-sm3 text-gray">
+
+임베딩은 텍스트를 단순하게 표현할 수 있어 다양한 통계적 자연어 처리기법에 적용되었고,....<p class="text-gray mt-3">2021.05.10</p>
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section> 
+</body>
+</html>

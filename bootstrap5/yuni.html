@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <style>
+		body, ul, li, div, p{ margin: 0; padding: 0;}
+		li{ list-style: none;}
+		
+.main .mcon06 {
+ width:100%;
+ padding:194px 0 129px;
+ background-color:#EEF8FF;
+ margin-top:-100px
+}
+.main .mcon06 ul li {
+ text-align:center;
+ opacity:0.6;
+}
+.main .mcon06 ul li.swiper-slide-active {
+ opacity:1;
+}
+.main .mcon06 ul li .star {
+ width:auto;
+ margin:0 auto 10px;
+}
+.main .mcon06 ul li .star img.pc_icon {
+ display:inline-block;
+}
+.main .mcon06 ul li .star img.mo_icon {
+ display:none;
+}
+.main .mcon06 ul li h1 {
+ font-size:55px;
+ color:#DC272D;
+ font-weight:400;
+ line-height:1;
+ letter-spacing:0.02em;
+ margin-bottom:25px;
+}
+.main .mcon06 ul li .review_cont .tit {
+ font-size:20px;
+ color:#231F20;
+ font-weight:500;
+}
+.main .mcon06 ul li .review_cont .txt {
+ font-size:15px;
+ color:#6F6F6F;
+ line-height:25px;
+ margin-top:20px;
+}
+.main .mcon06 ul li .review_cont .date {
+ font-size:15px;
+ color:#231F20;
+ font-family: 'Source Serif Pro',serif;
+ font-style: italic;
+ margin-top:30px;
+ letter-spacing:0;
+}
+.main .mcon06 .swiper-button-next,
+.main .mcon06 .swiper-button-prev {
+ width:30px;
+ height:57px
+}
+.main .mcon06 .swiper-button-prev {
+ left:25%;
+ background:url('https://www.tocobo.co.kr/wib/img/icon/review_arrow_prev.svg')no-repeat center center;
+}
+.main .mcon06 .swiper-button-next {
+ right:25%;
+ background:url('https://www.tocobo.co.kr/wib/img/icon/review_arrow_next.svg')no-repeat center center;
+}
+.main .mcon06 .swiper-pagination {
+ display:none;
+ width:auto;
+ left:50%;
+ transform:translateX(-50%);
+ bottom:3px;
+}
+.main .mcon06 .swiper-pagination-bullet-active {
+ background-color:#009BDE !important;
+}
+.main .mcon06 .swiper-pagination-bullet {
+ width:5px;
+ height:5px;
+ margin:0 5px !important;
+ border:1px solid #009BDE !important;
+ opacity:1 !important;
+ background-color:#fff;
+}
+    </style>
+	 <!-- Swiper JS -->
+	 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+	 <!-- Initialize Swiper -->
+	 <script>
+	   var swiper = new Swiper(".swiper-container", {
+		 slidesPerView: 3,
+		 spaceBetween: 30,
+		 freeMode: true,
+		 pagination: {
+		   el: ".swiper-pagination",
+		   clickable: true,
+		 },
+	   });
+	 </script>
+</head>
+<body>
+    <div class="main">
+    <div class="mcon06">
+		<div class="swiper-container" data-aos="fade-up" data-aos-duration="3000">
+			<ul class="swiper-wrapper"><li class="swiper-slide br">
+					<a href="/board/product/list.html?board_no=4">
+						<p class="star"><img src="https://tocobo.cafe24.com/wib/img/icon/star.png" alt="별" class="pc_icon"><img src="https://tocobo.cafe24.com/wib/img/mo/icon/star.png" alt="별" class="mo_icon"></p>	
+						<h1>진짜 리뷰</h1>
+						<div class="review_cont">
+							<p class="tit">“사각턱 고민”</p>
+							<p class="txt">
+								턱이완전쪼이는게 벌써부터 브이라인이 된거같아요<br>
+							    열심히 관리해보려고 합니다!<br>
+								좋은제품 감사합니다^^
+							</p>
+							<p class="date">kiss****</p>
+						</div>
+					</a>
+				</li>
+				<li class="swiper-slide">
+					<a href="/board/product/list.html?board_no=4">
+						<p class="star"><img src="https://tocobo.cafe24.com/wib/img/icon/star.png" alt="별" class="pc_icon"><img src="https://tocobo.cafe24.com/wib/img/mo/icon/star.png" alt="별" class="mo_icon"></p>	
+						<h1>Staff’s Review</h1>
+						<div class="review_cont">
+							<p class="tit">“양악수술 후 관리중”</p>
+							<p class="txt">
+								약손명가에서 나온제품이라 믿고 구매했어요<br>
+								돌기형이 윤곽관리에 좋다고해서 붓기도 뺄겸 쓰고있어요<br>
+								세척도 용이 하고 좋네요!
+							</p>
+							<p class="date">tnrw****</p>
+						</div>
+					</a>
+				</li>
+				<li class="swiper-slide">
+					<a href="/board/product/list.html?board_no=4">
+						<p class="star"><img src="https://tocobo.cafe24.com/wib/img/icon/star.png" alt="별" class="pc_icon"><img src="https://tocobo.cafe24.com/wib/img/mo/icon/star.png" alt="별" class="mo_icon"></p>	
+						<h1>Staff’s Review</h1>
+						<div class="review_cont">
+							<p class="tit">“어느덧 4년째 애정템!”</p>
+							<p class="txt">
+								쓴지 거의4년째 되가네요 혈자리를 눌러줘서 좋아요<br>
+								술먹고 다음날 얼굴부을때도 잘빼줘서 여행갈때도 꼭 챙겨가요!<br>
+								이거쓰고 얼굴작단 소리 많이 들었습니다ㅎㅎㅎㅎ
+							</p>
+							<p class="date">bnmf****</p>
+						</div>
+					</a>
+				</li>	
+				<li class="swiper-slide">
+					<a href="/board/product/list.html?board_no=4">
+						<p class="star"><img src="https://tocobo.cafe24.com/wib/img/icon/star.png" alt="별" class="pc_icon"><img src="https://tocobo.cafe24.com/wib/img/mo/icon/star.png" alt="별" class="mo_icon"></p>	
+						<h1>Staff’s Review</h1>
+						<div class="review_cont">
+							<p class="tit">“40대 리프팅 관리”</p>
+							<p class="txt">
+								저녁에 팩과함께 사용중 입니다.<br>
+								나이드니 턱이쳐지기 시작해 구매했는데 너무 자극적이지 않고 좋습니다.<br>
+								주변친구들도 저 보고 따라 구매했어요^^
+
+							</p>
+							<p class="date">eun-****</p>
+						</div>
+					</a>
+				</li>	
+			</ul><div class="btn_box">
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

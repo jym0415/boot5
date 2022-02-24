@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dreamingcoding.com</title>
+    <link href="https://www.dreamingcoding.com/resources/client/static/css/reset.css" rel="stylesheet" />    
+    <style>
+        body{ background-color: #222;}
+        /* ==============================
+* header
+* ============================== */
+#headerWrap{  position:fixed; top:0; left:0; z-index:100; width:100%; transition: all .3s ease;}
+
+#header { overflow:hidden; height:180px; padding-top:20px; transition:all .3s ease;}
+#header .section { display:flex; padding-right:170px;}
+#header .btnGnbMenu { display:none;}
+#header .logo { margin-top:10px;}
+#header .logo a { display:block; width:300px; height:95px; font-size:0; background:url('https://www.dreamingcoding.com/resources/client/static/images/common/logo_close.png') no-repeat center center /100%;}
+#header .topLink { display:flex; position:absolute; top:0; right:170px; align-items: center;}
+#header .topLink a { font-size:16px; color:#999; font-weight:bold;}
+#header .topLink > * { position: relative;}
+#header .topLink > * + * { margin-left:25px;}
+#header .topLink > * + *:before { content:''; display:block; position: absolute; left:-12px; top:8px; width:1px; height:10px; background:#999;}
+#header .topLink .mypage {}
+#header .topLink .mypage .view { display:none; position:absolute; top:30px; left:-15px; z-index:10; width:130px; padding:5px 0; box-shadow:0 0 5px rgba(0,0,0,0.2); background:#fff;}
+#header .topLink .mypage .view a { display:block; padding:5px 10px;}
+#header .topLink .language { margin-left:12px;}
+#header .topLink .language:before { display:none;}
+#header .topLink .language > a { display:inline-flex; height:25px; padding:0 12px; font-size:15px; color:#fff; align-items: center; border-radius: 20px; background:#333333;}
+#header .gnb { flex:1 1 auto; margin-top:50px; margin-left:120px;}
+#header .gnb ul { display:flex; justify-content: space-between;}
+#header .gnb li { display:flex; position:relative;}
+#header .gnb li:nth-child(2) > a { padding-right:120px;}
+#header .gnb li > a { display:block; padding-right:30px; font-size:25px; color:#333333; transition: all .3s ease;}
+#header .gnb li .view { visibility: hidden; position:absolute; top:45px; left:0px; padding-top:30px;transition:all .3s ease; opacity:0;}
+#header .gnb li .view > a { display:block; font-size:20px; color:#333333; transition: all .3s ease;}
+#header .gnb li .view > a + a { margin-top:10px;}
+#header .bookStore { position:absolute; top:10px; right:-50px; width:150px; height:134px; font-size:0; background:url('https://www.dreamingcoding.com/resources/client/static/images/common/btn_book_store.png') no-repeat center center / 100%; transition: all .3s ease;}
+#header .btnGnbClose { display:none;}
+
+.headerBg { visibility: hidden; position:absolute; top:0px; left:0; width:100%; height:0px; background:rgba(255,255,255,0.95);transition:all .3s ease; opacity: 0;}
+
+#headerWrap.hover #header { height:430px;}
+#headerWrap.hover .gnb li .view { opacity: 1; visibility: visible;}
+#headerWrap.hover .headerBg { opacity: 1; visibility: visible; height:430px; box-shadow: 0 0 10px rgba(0,0,0,0.2);}
+
+
+/* 메인 */
+.mainHeader #header {}
+.mainHeader #header .gnb li > a { color:#fff;}
+.mainHeader.hover #header .gnb li > a { color:#333;}
+
+/* 스크롤시 */
+#headerWrap.scroll { background:rgba(255,255,255,0.95)}
+#headerWrap.scroll #header { height:150px; border-bottom:1px solid #eee;}
+#headerWrap.scroll #header .gnb li > a { color:#333;}
+
+#headerWrap.scroll.hover #header { height:430px;}
+
+/* hover */
+:not(.mobile) #header .gnb li .view > a:hover { color:#1775e8;}
+
+/* hide */
+#headerWrap.hide { transform: translateY(-100%);}
+#headerWrap.hide #header .bookStore { transform: translateX(100%);}
+
+
+@media screen and (max-width:1400px) {
+
+    #header { overflow: visible; height:auto; padding-top:0;}
+    #header .logo a { width:230px;}
+    #header .btnGnbMenu { display:block; position:absolute; top:50%; right:30px; width:80px; height:80px; transform: translateY(-50%);}
+    #header .btnGnbMenu span { position:absolute; top:50%; right:0; width:40px; height:4px; font-size:0; background:#333; transform: translateY(-50%);}
+    #header .btnGnbMenu span:before { content:''; display:block; position:absolute; top:-15px; right:0; width:50px; height:4px; background:#333;}
+    #header .btnGnbMenu span:after { content:''; display:block; position:absolute; top:15px; right:0; width:40px; height:4px; background:#333;}
+
+    #header .topLink { position:static; padding:18px 30px; border-bottom:1px solid #e5e5e5;}
+    #header .topLink a { position:relative; font-size:14px; color:#333333; font-weight:bold;}
+    #header .topLink > * + * { margin-left:30px;}
+    #header .topLink > * + *:before { content:''; display:block; position:absolute; top:50%; left:-15px; width:1px; height:10px; background:#d6d6d6; transform: translateY(-50%);}
+    #header .topLink .language { margin-left:auto; margin-right:50px;}
+    #header .topLink .language > a { font-size:12px;}
+
+    #header .gnb { overflow:hidden; visibility: hidden; position:fixed; top:0; left:0; right:0; bottom:0; z-index:100; margin:0; background:rgba(0,0,0,0.8); opacity:0;transition: .3s ease .3s;}
+    #header .gnb .menu { overflow:hidden; overflow-y:auto; position:absolute; top:0; right:0; bottom:0; width:80%; background:#fff; transform: translateX(100%); transition: .3s ease;}
+    #header .gnb ul { display:block; padding:0px 30px 60px;}
+    #header .gnb li { display:block; position:relative;}
+    #header .gnb li:nth-child(2) > a { padding-left:0px; padding-right:0px;}
+    #header .gnb li > a { display:block; position:relative; padding-right:0px; padding:20px 0; font-size:20px; border-bottom:2px solid #f0e8da; font-weight:bold;}
+    #header .gnb li > a:after { content:''; position:absolute; top:50%; right:20px; width:17px; height:10px; background:url('../images/common/ico_gnb_arrow.png') no-repeat center center / 100%; transition:all .3s ease}
+    #header .gnb li.on > a:after { background-image: url('../images/common/ico_gnb_arrow_on.png');}
+    #header .gnb li .view { visibility: visible; display:none; position:static; padding:15px 20px; opacity:1; transition:none; background:#f6f6f6}
+    #header .gnb li .view > a { display:block; font-size:16px; color:#333333; transition: all .3s ease;}
+    #header .gnb li .view > a + a { margin-top:10px;}
+
+    #header .btnGnbClose { display:block; position:absolute; top:12px; right:30px; width:40px; height:40px; font-size:0; background:url('../images/common/btn_gnb_close.png') no-repeat center center / 20px;}
+ 
+    #header .gnb.active { visibility: visible; opacity:1; transition: .3s ease;}
+    #header .gnb.active .menu { transform: translateX(0); transition: .3s ease .3s;}
+
+    #header .bookStore { top:70px}
+
+    #headerWrap.scroll #header,
+    #headerWrap.scroll.hover #header { height:auto;}
+
+    #headerWrap.hover #header { height:auto;}
+    #headerWrap.hover .headerBg { display:none;}
+
+    #headerWrap.mainHeader #header .btnGnbMenu span,
+    #headerWrap.mainHeader #header .btnGnbMenu span:before,
+    #headerWrap.mainHeader #header .btnGnbMenu span:after { background:#fff;}
+
+    #headerWrap.mainHeader.scroll #header .btnGnbMenu span,
+    #headerWrap.mainHeader.scroll #header .btnGnbMenu span:before,
+    #headerWrap.mainHeader.scroll #header .btnGnbMenu span:after { background:#333;}
+
+    .mainHeader #header .gnb li > a { color:#333;}
+}
+
+@media screen and (max-width:767px) {
+
+    #header .logo { margin:0;}
+    #header .logo a { width:180px; height:80px;}
+
+    #header .topLink { padding-top: 50px;}
+    #header .topLink .language { position:absolute; top:15px; left:20px; margin-right:0;}
+
+    #header .btnGnbMenu { width:60px; height:60px;}
+    #header .btnGnbMenu span { width:30px; height:3px;}
+    #header .btnGnbMenu span:before { top:-8px; right:0; width:30px; height:3px;}
+    #header .btnGnbMenu span:after { top:8px; right:0; width:30px; height:3px;}
+
+    #header .gnb ul { padding:0 20px 40px;}
+    #header .gnb li > a { font-size:18px;}
+    #header .gnb li .view > a { font-size:15px;}
+
+    #header .bookStore { right:-34px; width:100px; height:77px;}
+
+    #header .btnGnbClose { top:5px; right:15px;}
+}
+    </style>
+    <script type="text/javascript" src="https://www.dreamingcoding.com/resources/client/static/js/common.js"></script>
+    <script>
+        const mobileCheck = {
+	val : {
+		text:null
+	},
+	check : function(){
+		const $agent = navigator.userAgent;
+		const isAndroid = ($agent.match(/Android/i) != null) ? 'android' : null;
+		const isBlackBerry = ($agent.match(/BlackBerry/i) != null) ? 'blackBerry' : null;
+		const isIOS = ($agent.match(/iPhone|iPad|iPod|iOS/i) != null) ? 'ios' : null;
+		const isIPhone = ($agent.match(/iPhone/i) != null) ? 'iphone' : null;
+		const isIPad = ($agent.match(/iPad/i) != null) ? 'ipad' : null;
+		const isOpera = ($agent.match(/Opera Mini/i) != null) ? 'opera' : null;
+		const isWindows = ($agent.match(/IEMobile/i) != null) ? 'windows' : null;
+		const isNaverApp = ($agent.indexOf('NAVER(inapp') !== -1) ? 'naverApp' : null;
+		const isDaumApp = ($agent.match(/DaumApps/i) != null) ? 'daumApp' : null;
+		const isKakaoTalk = ($agent.match(/KAKAOTALK/i) != null) ? 'kakaoTalk' : null;
+		const isAny = (isAndroid || isIOS || isBlackBerry || isOpera || isWindows);
+
+		if(isAny){
+			$('html').addClass('mobile');
+			if(mobileCheck.text){
+				$('html').removeClass(mobileCheck.text.join(' '));
+			}
+			mobileCheck.text = null;
+			mobileCheck.text = [isAndroid, isBlackBerry, isIOS, isIPhone, isIPad, isOpera, isWindows, isNaverApp, isDaumApp, isKakaoTalk];
+			$('html').addClass(mobileCheck.text.join(' '));
+		} else {
+			$('html').removeClass('mobile');
+			$('#headerWrap').removeClass('hide');
+			if(mobileCheck.text){
+				$('html').removeClass(mobileCheck.text.join(' '));
+			}
+		}
+	},
+	init: function(){
+		mobileCheck.check();
+	}
+};
+        const common = {
+	header : function(){
+		
+		$(document).on('mouseenter','#header .gnb',function(){
+			if(!$('html').hasClass('mobile')){
+				$('#headerWrap').addClass('hover');
+			};
+		}).on('mouseleave','#header .gnb',function(){
+			if(!$('html').hasClass('mobile')){
+				$('#headerWrap').removeClass('hover');
+			};
+		});
+
+		$(document).on('click','#header .gnb li > a',function(){
+			const winW = $(window).outerWidth();
+			if(winW > 1400){
+				$('#headerWrap').toggleClass('hover');
+			}else{
+				if($(this).next('.view').css('display') != 'block'){
+					$(this).next('.view').slideDown().parent().addClass('on');
+				}else{
+					$(this).next('.view').slideUp(function(){
+						$(this).removeAttr('style');
+					}).parent().removeClass('on');
+				}
+			}
+		});
+
+		$(document).on('click','#header .btnGnbMenu',function(){
+			$('.gnb').addClass('active');
+			return false;
+		})
+
+		$(document).on('click','#header .btnGnbClose',function(){
+			$('.gnb').removeClass('active');
+			return false;
+		});
+
+		$(document).on('click','#header .gnb.active',function(e){
+			if($(e.originalEvent.target).hasClass('gnb')){
+				$('.gnb').removeClass('active');
+				return false;
+			}
+		});
+
+		$(window).scroll(function(){
+			const top = $(window).scrollTop();
+			if(top > 80){
+				$('#headerWrap').addClass('scroll');
+			}else {
+				$('#headerWrap').removeClass('scroll');
+			}
+		});
+
+		
+		let touchScrollT = 0;
+		$('html,body').on('touchstart',function(){
+			const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+			touchScrollT = scrollTop;
+		})
+
+		$('html,body').on('touchmove', function(e){
+			mobileScrollCheck();
+		});
+
+		$(window).scroll(function(e){
+			mobileScrollCheck();
+		});
+
+		function mobileScrollCheck(){
+			const winW = $(window).outerWidth();
+			if($('html').hasClass('mobile') && !$('.gnb').hasClass('active')){
+				const scrollTop = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop);
+				if(touchScrollT < scrollTop){
+					$('#headerWrap').addClass('hide');
+				}else{
+					$('#headerWrap').removeClass('hide');
+				}
+			}
+		}
+
+		$(document).on('click','#header .topLink .mypage > a',function(){
+			$(this).next().slideToggle();
+			return false;
+		});
+	},
+	footer: function(){
+		$(window).scroll(function(e){
+			buttonTop();
+		});
+	
+		function buttonTop(){
+			let scrollTop = $(window).scrollTop();
+			if(scrollTop > $(window).outerHeight()){
+				$('.buttonTop').addClass('on');
+			}else {
+				$('.buttonTop').removeClass('on');
+			}
+		}
+	},
+	init: function(){
+		common.header();
+		//common.footer();
+	}
+};
+
+$(function(){ //ready이벤트 
+	
+	mobileCheck.init();
+	common.init();
+
+}); 
+
+    </script>
+</head>
+<body>
+    <header id="headerWrap" class="mainHeader">
+        <!-- 헤더영역 -->
+        
+        <div class="headerBg"></div>
+        <div id="header">
+            <div class="section">
+                <h1 class="logo"><a href="/">로고</a></h1>
+                <a href="#" class="btnGnbMenu"><span>전체메뉴오픈</span></a>
+                <nav class="gnb">
+                    <div class="menu">
+                        <div class="topLink">
+                                
+                                    <!--  로그인 전-->
+                                    <a href="/user/login">로그인</a>
+                                    <a href="/user/join">회원가입</a>
+                                    
+                                    <!--  //로그인 전 -->
+                                
+                            
+                            <a id="goCartBtn" href="/cart/cart">장바구니</a>
+                            <div class="language">
+                                <a href="#">KOR</a>
+                            </div>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#">꿈꾸는코끼리</a>
+                                <div class="view">
+                                    <a href="/brand/brand">들어볼래요?</a>
+                                    <a href="/brand/creater">누가 만들었나요?</a>
+                                </div>
+                            </li>
+                            <li id="content-list">
+                                <a href="#">꿈코 동화보기</a>
+                                <div class="view">
+                                    <a href="/product/read?productSer=1">화장실 괴물 무섭지 않아!</a>
+                                    <a href="/product/read?productSer=2">뽀송이의 여행</a>
+                                    <a href="/product/read?productSer=3">용감한 하준이의 세균 물리치기</a>
+                                    <a href="/product/read?productSer=4">잃어버린 장난감은 어디있을까?</a>
+                                    <a href="/product/read?productSer=5">우리, 친구할까</a>
+                                    <a href="/product/read?productSer=6">이상한 스마트폰 세상</a>
+                                </div>
+                            </li>
+                            <li id="guest-content-list" style="display: none;">
+                                <a href="#" style="padding-right: 120px;">꿈코 동화보기</a>
+                                <div class="view">
+                                    <a href="javascript:void(0);" onclick="goGuestProductPageInHeader('ITEM-000001', '')">화장실 괴물 무섭지 않아!</a>
+                                    <a href="javascript:void(0);" onclick="goGuestProductPageInHeader('ITEM-000002', '')">뽀송이의 여행</a>
+                                    <a href="javascript:void(0);" onclick="goGuestProductPageInHeader('ITEM-000003', '')">용감한 하준이의 세균 물리치기</a>
+                                    <a href="javascript:void(0);" onclick="goGuestProductPageInHeader('ITEM-000004', '')">잃어버린 장난감은 어디있을까?</a>
+                                    <a href="javascript:void(0);" onclick="goGuestProductPageInHeader('ITEM-000005', '')">우리, 친구할까</a>
+                                    <a href="javascript:void(0);" onclick="goGuestProductPageInHeader('ITEM-000006', '')">이상한 스마트폰 세상</a>
+                                </div>
+                            </li>
+                            
+                            <li><a href="#">꿈코 체험</a>
+                                <div class="view">
+                                    <a href="/experience/ar">AR 체험</a>
+                                    <a href="void(0);" onclick="alert('준비 중입니다.');return false;">코딩 블록 체험</a>
+                                </div>
+                            </li>
+                            <li><a href="#">도란도란</a>
+                                <div class="view">
+                                    <a href="/notice/list?page=1&amp;perPageNum=4">공지/뉴스</a>
+                                    <a href="/event/list?page=1&amp;perPageNum=6">이벤트</a>
+                                    <a href="/guide/list?searchType=&amp;keyword=">이용가이드</a>
+                                    <a href="/help/qna">Q&amp;A</a>
+                                    <a href="/sns/list?page=1&amp;perPageNum=6">SNS</a>
+                                    <a href="/review/list?page=1&amp;perPageNum=6">꿈코후기</a>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="btnGnbClose">닫기</a>
+                    </div>
+                </nav>
+            
+                <a href="void(0);" onclick="alert('준비 중입니다.');return false;" class="bookStore">쇼핑몰</a>
+            </div>
+        
+        </div>
+      
+        <!-- //헤더영역 -->
+        
+            </header>
+</body>
+</html>
